@@ -1,0 +1,31 @@
+public class ArrayCompare {
+
+    // Generic method to check if two arrays are identical in elements and order
+    public static <T> boolean areArraysEqual(T[] array1, T[] array2) {
+        // If they don't have the same length, they can't be equal
+        if (array1.length != array2.length) {
+            return false;
+        }
+
+        // Check each element in order
+        for (int i = 0; i < array1.length; i++) {
+            if (!array1[i].equals(array2[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Integer[] numArr1 = {1, 2, 3, 4};
+        Integer[] numArr2 = {1, 2, 3, 4};
+        Integer[] numArr3 = {1, 2, 4, 3};
+
+        String[] strArr1 = {"Apple", "Banana"};
+        String[] strArr2 = {"Apple", "Banana"};
+
+        System.out.println("numArr1 & numArr2 equal? " + areArraysEqual(numArr1, numArr2)); // true
+        System.out.println("numArr1 & numArr3 equal? " + areArraysEqual(numArr1, numArr3)); // false
+        System.out.println("strArr1 & strArr2 equal? " + areArraysEqual(strArr1, strArr2)); // true
+    }
+}

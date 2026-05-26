@@ -1,0 +1,34 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class MapPrinter {
+
+    // Generic method to print any Map's key-value pairs
+    public static <K, V> void printMap(Map<K, V> map) {
+        if (map == null || map.isEmpty()) {
+            System.out.println("The map is empty or null.");
+            return;
+        }
+
+        System.out.println("--- Map Contents ---");
+        for (Map.Entry<K, V> entry : map.entrySet()) {
+            System.out.println("Key: " + entry.getKey() + " | Value: " + entry.getValue());
+        }
+    }
+
+    public static void main(String[] args) {
+        // Test with String keys and Integer values
+        Map<String, Integer> studentGrades = new HashMap<>();
+        studentGrades.put("Alice", 95);
+        studentGrades.put("Bob", 88);
+
+        // Test with Integer keys and String values
+        Map<Integer, String> employeeNames = new HashMap<>();
+        employeeNames.put(101, "John Doe");
+        employeeNames.put(102, "Jane Smith");
+
+        printMap(studentGrades);
+        System.out.println();
+        printMap(employeeNames);
+    }
+}
